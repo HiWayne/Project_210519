@@ -18,7 +18,7 @@ public class UIMain : MonoSingleton<UIMain>
 
     public void EnterStartMenu()
     {
-        startMenuInst = Instantiate(startMenuPf, defaultLayer);
+        //startMenuInst = Instantiate(startMenuPf, defaultLayer);
     }
 
     public void LeaveStartMenu()
