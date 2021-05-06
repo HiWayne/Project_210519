@@ -16,13 +16,11 @@ public class UIDrag : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHa
 
     internal Transform startRoot;
     DragManager manager;
-    int correctIndex;
+    public int correctIndex;
     internal int currentIndex;
 
     public bool IsCorrect { get { return correctIndex == currentIndex; } }
     public int CorrectIndex { get { return correctIndex; } }
-
-    float timeCounter;
 
     void Awake()
     {
@@ -32,10 +30,9 @@ public class UIDrag : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHa
         startRoot = transform.parent;
     }
 
-    public void Init(DragManager manager, int correctIndex, Action onFinish = null, bool overBefore = true)
+    public void Init(DragManager manager, Action onFinish = null, bool overBefore = true)
     {
         this.manager = manager;
-        this.correctIndex = correctIndex;
         this.currentIndex = -1;
 
         if (overBefore)
@@ -59,7 +56,7 @@ public class UIDrag : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHa
             GameMain.Instance.OnDrag(this);
             dragState = DragState.Draging;
 
-            timeCounter = 0;
+            transform.SetParent(manager.dragingRoot);
         }
     }
 
@@ -70,8 +67,6 @@ public class UIDrag : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHa
             Vector3 globalMousePos;
             if (RectTransformUtility.ScreenPointToWorldPointInRectangle(dragRect, eventData.position, eventData.pressEventCamera, out globalMousePos))
                 dragRect.position = globalMousePos;
-
-            timeCounter += Time.deltaTime;
         }
     }
 

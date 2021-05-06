@@ -6,6 +6,7 @@ using System;
 public class DragManager : MonoBehaviour
 {
     public RectTransform[] cols;
+    public Transform dragingRoot;
 
     internal List<UIDrag> dragInsts;
 
@@ -13,20 +14,20 @@ public class DragManager : MonoBehaviour
 
     public virtual void Init(Action onFinish = null)
     {
-        dragInsts = new List<UIDrag>();
-        this.onFinish = onFinish;
+        //dragInsts = new List<UIDrag>();
+        //this.onFinish = onFinish;
     }
 
     public virtual void OnEndDrag()
     {
-        bool finish = true;
+        //bool finish = true;
 
-        for (int i = 0, length = dragInsts.Count; i < length; i++)
-        {
-            finish &= dragInsts[i].IsCorrect;
-        }
+        //for (int i = 0, length = dragInsts.Count; i < length; i++)
+        //{
+        //    finish &= dragInsts[i].IsCorrect;
+        //}
 
-        if (finish)
-            onFinish?.Invoke();
+        //if (finish)
+        //    onFinish?.Invoke();
     }
 }

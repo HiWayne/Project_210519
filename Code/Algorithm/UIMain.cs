@@ -12,9 +12,17 @@ public class UIMain : MonoSingleton<UIMain>
 
     [Header("Τ¤ΦΖΜε")]
     public StartMenu startMenuPf;
+    public GameObject bubbleSortPf;
+    public GameObject selectSortPf;
+    public GameObject quickSortPf;
 
     // Κµΐύ
     StartMenu startMenuInst;
+    GameObject bubbleSortInst;
+    GameObject selectSortInst;
+    GameObject quickSortInst;
+
+    SortType currentSortType;
 
     public void EnterStartMenu()
     {
@@ -27,33 +35,74 @@ public class UIMain : MonoSingleton<UIMain>
             Destroy(startMenuInst.gameObject);
     }
 
-    public void EnterBubbleSort()
+    public void EnterSortPanel(SortType sortType)
     {
+        this.currentSortType = sortType;
 
+        switch (currentSortType)
+        {
+            case SortType.BubbleSort:
+                EnterBubbleSort();
+                break;
+            case SortType.SelectSort:
+                EnterSelectSort();
+                break;
+            case SortType.QuickSort:
+                EnterQuickSort();
+                break;
+            default:
+                break;
+        }
     }
 
-    public void LeaveBubbleSort()
+    public void LeaveCurrentSortPanel()
     {
-
+        switch (currentSortType)
+        {
+            case SortType.BubbleSort:
+                LeaveBubbleSort();
+                break;
+            case SortType.SelectSort:
+                LeaveSelectSort();
+                break;
+            case SortType.QuickSort:
+                LeaveQuickSort();
+                break;
+            default:
+                break;
+        }
     }
 
-    public void EnterSelectSort()
+    void EnterBubbleSort()
     {
-
+        bubbleSortInst = Instantiate(bubbleSortPf, defaultLayer);
     }
 
-    public void LeaveSelectSort()
+    void LeaveBubbleSort()
     {
-
+        if (bubbleSortInst != null)
+            Destroy(bubbleSortInst.gameObject);
     }
 
-    public void EnterQuickSort()
+    void EnterSelectSort()
     {
-
+        selectSortInst = Instantiate(selectSortPf, defaultLayer);
     }
 
-    public void LeaveQuickSort()
+    void LeaveSelectSort()
     {
+        if (selectSortInst != null)
+            Destroy(selectSortInst.gameObject);
+    }
 
+    void EnterQuickSort()
+    {
+        quickSortInst = Instantiate(quickSortPf, defaultLayer);
+    }
+
+    void LeaveQuickSort()
+    {
+        if (quickSortInst != null)
+            Destroy(quickSortInst.gameObject);
     }
 }

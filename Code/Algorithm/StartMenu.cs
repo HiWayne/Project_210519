@@ -25,20 +25,7 @@ public class StartMenu : MonoBehaviour
             btnDatas[btnIndex].enterExpBtn.onClick.AddListener(() =>
             {
                 // 进入相应的模块
-                switch (btnDatas[btnIndex].sortType)
-                {
-                    case SortType.BubbleSort:
-                        UIMain.Instance.EnterBubbleSort();
-                        break;
-                    case SortType.SelectSort:
-                        UIMain.Instance.EnterSelectSort();
-                        break;
-                    case SortType.QuickSort:
-                        UIMain.Instance.EnterQuickSort();
-                        break;
-                    default:
-                        break;
-                }
+                UIMain.Instance.EnterSortPanel(btnDatas[btnIndex].sortType);
 
                 // 离开开始菜单
                 UIMain.Instance.LeaveStartMenu();
