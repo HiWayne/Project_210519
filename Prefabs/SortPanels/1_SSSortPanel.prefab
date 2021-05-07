@@ -27,6 +27,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: minIndex=i j=i+1
       objectReference: {fileID: 0}
+    - target: {fileID: 1089332410435104992, guid: 0955e871b317d9a46b25825e261e95b4, type: 3}
+      propertyPath: sortType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1125226467235498512, guid: 0955e871b317d9a46b25825e261e95b4, type: 3}
       propertyPath: m_Text
       value: j++
