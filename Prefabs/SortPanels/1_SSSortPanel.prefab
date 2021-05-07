@@ -17,7 +17,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1625510920279559437, guid: 0955e871b317d9a46b25825e261e95b4, type: 3}
       propertyPath: m_Name
-      value: SSSortPanel
+      value: 1_SSSortPanel
       objectReference: {fileID: 0}
     - target: {fileID: 1625510920279559438, guid: 0955e871b317d9a46b25825e261e95b4, type: 3}
       propertyPath: m_Pivot.x
@@ -136,6 +136,14 @@ PrefabInstance:
       propertyPath: m_Text
       value: i<n
       objectReference: {fileID: 0}
+    - target: {fileID: 4075601728366335746, guid: 0955e871b317d9a46b25825e261e95b4, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 182.79077
+      objectReference: {fileID: 0}
+    - target: {fileID: 4075601728366335746, guid: 0955e871b317d9a46b25825e261e95b4, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 813
+      objectReference: {fileID: 0}
     - target: {fileID: 4517568901911106985, guid: 0955e871b317d9a46b25825e261e95b4, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
@@ -147,6 +155,17 @@ PrefabInstance:
     - target: {fileID: 4929288997225018176, guid: 0955e871b317d9a46b25825e261e95b4, type: 3}
       propertyPath: m_Text
       value: minIndex = j
+      objectReference: {fileID: 0}
+    - target: {fileID: 5042870401016092309, guid: 0955e871b317d9a46b25825e261e95b4, type: 3}
+      propertyPath: m_Text
+      value: "public static void SelectSort(ref int[] store)\r\n{\r\n        int
+        minIndex;\r\n        int temp;\r\n\r\n        for (int i = 0, length = store.Length;
+        i < length; i++)\r\n        {\r\n            minIndex = i;\r\n\r\n           
+        for (int j = i + 1; j < length; j++)\r\n            {\r\n               
+        if (store[minIndex] > store[j])\r\n                {\r\n                   
+        minIndex = j;\r\n                }\r\n            }\r\n\n            temp
+        = store[i];\r\n            store[i] = store[minIndex];\r\n            store[minIndex]
+        = temp;\r\n        }\r\n}"
       objectReference: {fileID: 0}
     - target: {fileID: 5107353939924890304, guid: 0955e871b317d9a46b25825e261e95b4, type: 3}
       propertyPath: m_AnchorMax.x
@@ -166,6 +185,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5396066666234123384, guid: 0955e871b317d9a46b25825e261e95b4, type: 3}
       propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5901565959741028040, guid: 0955e871b317d9a46b25825e261e95b4, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6493946565084393471, guid: 0955e871b317d9a46b25825e261e95b4, type: 3}

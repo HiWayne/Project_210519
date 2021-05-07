@@ -18,6 +18,10 @@ public class FlowChartPanel : DragManager
 
     // 拖拽内容面板
     public GameObject dragsPanel;
+    // 代码面板
+    public GameObject codePanel;
+    // 信息演示面板
+    public GameObject infosPanel;
 
     [Header("输入部分")]
     public IFData[] inputDatas;
@@ -60,7 +64,7 @@ public class FlowChartPanel : DragManager
                 dragsPanel.SetActive(true);
             });
         });
-        zoomOutBtn.onClick.AddListener(() => ZoomOut(!CorrectAll));
+        zoomOutBtn.onClick.AddListener(() => ZoomOut());
         exitBtn.onClick.AddListener(() =>
         {
             UIMain.Instance.LeaveCurrentSortPanel();
@@ -73,8 +77,10 @@ public class FlowChartPanel : DragManager
         }
     }
 
-    public void ZoomOut(bool canZoomAgain)
+    public void ZoomOut()
     {
+        bool correctAll = CorrectAll;
+
         if (zoomIn != null)
             zoomIn.Kill();
         if (zoomOut != null)
@@ -83,7 +89,14 @@ public class FlowChartPanel : DragManager
         dragsPanel.SetActive(false);
 
         zoomOut = targetRect.DOSizeDelta(new Vector2(widthRange.x, targetRect.sizeDelta.y), duration);
-        zoomOut.OnComplete(() => zoomInBtn.gameObject.SetActive(canZoomAgain));
+        zoomOut.OnComplete(() =>
+        {
+            zoomInBtn.gameObject.SetActive(true);
+            zoomInBtn.interactable = !correctAll;
+
+            codePanel.SetActive(correctAll);
+            infosPanel.SetActive(correctAll);
+        });
     }
 }
 

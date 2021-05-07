@@ -10,6 +10,9 @@ public class UIMain : MonoSingleton<UIMain>
     public Transform topLayer;
     public Transform toolLayer;
 
+    // 排序的数值范围
+    public Vector2Int itemValueRange;
+
     [Header("预制体")]
     public StartMenu startMenuPf;
     public GameObject bubbleSortPf;

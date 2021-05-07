@@ -44,7 +44,7 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: 4c0d655198c41c54fba72f43c4a7a124, type: 3}
-    totalSpriteSurfaceArea: 3361525
+    totalSpriteSurfaceArea: 3365621
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
@@ -55,12 +55,14 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 76e592688e084fa47adc4831ceb0e7c5, type: 3}
   - {fileID: 21300000, guid: 485f3fc8b2088db4f96bb0c4b4cdb753, type: 3}
   - {fileID: 21300000, guid: 3fe4821bfbd2e5445a50c13a17c6dad0, type: 3}
+  - {fileID: 21300000, guid: 6b9fc1bdd6de7bb4eb6132d6b3f7306c, type: 3}
   m_PackedSpriteNamesToIndex:
   - "\u5192\u6CE1\u6392\u5E8F\u6D41\u7A0B\u56FE"
   - BG_2
   - BG
   - "\u5FEB\u901F\u6392\u5E8F"
   - "\u9009\u62E9\u6392\u5E8F\u6D41\u7A0B\u56FE"
+  - Point
   m_RenderDataMap: {}
   m_Tag: Artwork
   m_IsVariant: 0
