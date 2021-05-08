@@ -5,6 +5,8 @@ using UnityEngine;
 // 游戏主要脚本，充当管理员
 public class GameMain : MonoSingleton<GameMain>
 {
+    public bool test;
+
     // 对象池，未使用
     internal EntityPool entityPool;
 

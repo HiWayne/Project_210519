@@ -45,7 +45,7 @@ public class FlowChartPanel : DragManager
                 corret &= drags[i].IsCorrect;
             }
 
-            return true;
+            return corret || GameMain.Instance.test;
         }
     }
 
