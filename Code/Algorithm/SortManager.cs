@@ -13,7 +13,7 @@ public class SortManager : MonoBehaviour
 
     // 
     public List<InfoItem> infoItems;
-    List<int> infoItemValues;
+    public List<int> infoItemValues;
 
     // 代码对象
     public GameObject[] codeObjs;
@@ -149,11 +149,6 @@ public class SortManager : MonoBehaviour
                         tasks.Enqueue(task);
                     }
                 }
-
-                // 反激活代码对象
-                //Task tmpTask = new Task();
-                //tmpTask.onStart = t => codeObjs[0].SetActive(false);
-                //tasks.Enqueue(tmpTask);
                 break;
             case SortType.SelectSort:
                 for (int i = 0, length = infoItems.Count; i < length; i++)
@@ -233,9 +228,116 @@ public class SortManager : MonoBehaviour
                 }
                 break;
             case SortType.QuickSort:
+                CreateQuickSortTask(0, infoItems.Count);
                 break;
             default:
                 break;
         }
+    }
+
+    void CreateQuickSortTask(int startIndex, int elementCount)
+    {
+        if (startIndex >= elementCount)
+            return;
+
+        int i = startIndex;
+        int j = elementCount - 1;
+        int middleIndex = (startIndex + elementCount) / 2;
+        int middle = infoItemValues[middleIndex];
+
+        while (true)
+        {
+            // 在middle左边找到一个比middle大的值
+            while (i < elementCount && infoItemValues[i] < middle)
+                i++;
+            // 在middle右边找到一个比middle小的值
+            while (j > 0 && infoItemValues[j] > middle)
+                j--;
+
+            int tmpIndex1 = i;
+            int tmpIndex2 = j;
+            int tmpMiddleIndex = (startIndex + elementCount) / 2;
+            if (tmpIndex1 != tmpMiddleIndex)
+            {
+                Task task1 = new Task(taskDuration * 0.5f);
+                task1.onStart = t =>
+                {
+                    infoItems[tmpIndex1].SetHightlight();
+                    infoItems[tmpMiddleIndex].SetHightlight();
+                };
+                task1.onStop = t =>
+                {
+                    infoItems[tmpIndex1].SetNormal();
+                    infoItems[tmpMiddleIndex].SetNormal();
+                };
+                tasks.Enqueue(task1);
+            }
+
+            if (tmpIndex2 != tmpMiddleIndex)
+            {
+                Task task2 = new Task(taskDuration * 0.5f);
+                task2.onStart = t =>
+                {
+                    infoItems[tmpIndex2].SetHightlight();
+                    infoItems[tmpMiddleIndex].SetHightlight();
+                };
+                task2.onStop = t =>
+                {
+                    infoItems[tmpIndex2].SetNormal();
+                    infoItems[tmpMiddleIndex].SetNormal();
+                };
+                tasks.Enqueue(task2);
+            }
+
+            // 当i=j时,middle左边都是比middle小的数,右边都是比middle大的;跳出循环
+            if (i == j)
+                break;
+
+            // 交换数据位置
+            int tmpValue = infoItemValues[i];
+            infoItemValues[i] = infoItemValues[j];
+            infoItemValues[j] = tmpValue;
+
+            // 交换位置任务
+            Task task3 = new Task(taskDuration);
+            Transform tmpRoot;
+            InfoItem tmpIT;
+            task3.onStart = t =>
+            {
+                // 标红
+                infoItems[tmpIndex1].SetHightlight();
+                infoItems[tmpIndex2].SetHightlight();
+
+                tmpRoot = infoItems[tmpIndex1].transform.parent;
+
+                // 变更父物体
+                infoItems[tmpIndex1].transform.SetParent(infoItems[tmpIndex2].transform.parent);
+                infoItems[tmpIndex2].transform.SetParent(tmpRoot);
+
+                // 交换位置动画
+                infoItems[tmpIndex1].transform.DOLocalMoveX(0, taskDuration - AnimDelayDuration - 0.1f).SetDelay(AnimDelayDuration);
+                infoItems[tmpIndex2].transform.DOLocalMoveX(0, taskDuration - AnimDelayDuration - 0.1f).SetDelay(AnimDelayDuration);
+
+                // 交换数据
+                tmpIT = infoItems[tmpIndex1];
+                infoItems[tmpIndex1] = infoItems[tmpIndex2];
+                infoItems[tmpIndex2] = tmpIT;
+            };
+            task3.onStop = t =>
+            {
+                // 相关元素还原
+                infoItems[tmpIndex1].SetNormal();
+                infoItems[tmpIndex2].SetNormal();
+            };
+
+            tasks.Enqueue(task3);
+
+            // 如果两个值相等,且等于middle,为避免进入死循环,j--
+            if (infoItemValues[i] == infoItemValues[j])
+                j--;
+        }
+
+        CreateQuickSortTask(startIndex, i);
+        CreateQuickSortTask(i + 1, elementCount);
     }
 }

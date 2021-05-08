@@ -1,80 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4616793966786493412
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8562979182385848858}
-  - component: {fileID: 8089129640746975227}
-  - component: {fileID: 162816578427878960}
-  m_Layer: 5
-  m_Name: Image
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &8562979182385848858
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4616793966786493412}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 201529970073232712}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 434, y: 0}
-  m_SizeDelta: {x: 285, y: 951}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &8089129640746975227
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4616793966786493412}
-  m_CullTransparentMesh: 1
---- !u!114 &162816578427878960
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4616793966786493412}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 485f3fc8b2088db4f96bb0c4b4cdb753, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
 --- !u!1001 &2487320853142552818
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -90,9 +15,13 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1089332410435104992, guid: 0955e871b317d9a46b25825e261e95b4, type: 3}
+      propertyPath: sortType
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1625510920279559437, guid: 0955e871b317d9a46b25825e261e95b4, type: 3}
       propertyPath: m_Name
-      value: QSSortPanel
+      value: 2_QSSortPanel
       objectReference: {fileID: 0}
     - target: {fileID: 1625510920279559438, guid: 0955e871b317d9a46b25825e261e95b4, type: 3}
       propertyPath: m_Pivot.x
@@ -214,9 +143,31 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 702.7383
       objectReference: {fileID: 0}
+    - target: {fileID: 4075601728366335746, guid: 0955e871b317d9a46b25825e261e95b4, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 410.79077
+      objectReference: {fileID: 0}
+    - target: {fileID: 4075601728366335746, guid: 0955e871b317d9a46b25825e261e95b4, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 1109
+      objectReference: {fileID: 0}
     - target: {fileID: 4517568901911106985, guid: 0955e871b317d9a46b25825e261e95b4, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5042870401016092309, guid: 0955e871b317d9a46b25825e261e95b4, type: 3}
+      propertyPath: m_Text
+      value: "public static void QuickSort(ref int[] store, int startIndex, int storeCount)\r\n{\r\n       
+        if (startIndex >= storeCount)\r\n            return;\r\n\r\n        int i
+        = startIndex;\r\n        int j = storeCount - 1;\r\n        int middle =
+        store[(startIndex + storeCount) / 2];\r\n        int temp;\r\n\r\n       
+        while (true)\r\n        {\r\n            while (i < storeCount && store[i]
+        < middle)\r\n                i++;\r\n            while (j > 0 && store[j]
+        > middle)\r\n                j--;\r\n            if (i == j)\r\n               
+        break;\r\n\r\n            temp = store[i];\r\n            store[i] = store[j];\r\n           
+        store[j] = temp;\r\n\r\n            if (store[i] == store[j])\r\n               
+        j--;\r\n        }\r\n\r\n        QuickSort(ref store, startIndex, i);\r\n       
+        QuickSort(ref store, i + 1, storeCount);\r\n}"
       objectReference: {fileID: 0}
     - target: {fileID: 5107353939924890304, guid: 0955e871b317d9a46b25825e261e95b4, type: 3}
       propertyPath: m_AnchorMax.x
@@ -238,6 +189,10 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5901565959741028040, guid: 0955e871b317d9a46b25825e261e95b4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6493946565084393471, guid: 0955e871b317d9a46b25825e261e95b4, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
@@ -246,10 +201,33 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 485f3fc8b2088db4f96bb0c4b4cdb753, type: 3}
+    - target: {fileID: 7720919939870144614, guid: 0955e871b317d9a46b25825e261e95b4, type: 3}
+      propertyPath: m_Text
+      value: "public static void QuickSort(ref int[] store, int startIndex, int storeCount)\r\n{\r\n       
+        if (startIndex >= storeCount)\r\n            return;\r\n\r\n        int i
+        = startIndex;\r\n        int j = storeCount - 1;\r\n        int middle =
+        store[(startIndex + storeCount) / 2];\r\n        int temp;\r\n\r\n       
+        while (true)\r\n        {\r\n            while (i < storeCount && store[i]
+        < middle)\r\n                i++;\r\n            while (j > 0 && store[j]
+        > middle)\r\n                j--;\r\n            if (i == j)\r\n               
+        break;\r\n\r\n            temp = store[i];\r\n            store[i] = store[j];\r\n           
+        store[j] = temp;\r\n\r\n            if (store[i] == store[j])\r\n               
+        j--;\r\n        }\r\n\r\n        QuickSort(ref store, startIndex, i);\r\n       
+        QuickSort(ref store, i + 1, storeCount);\r\n}"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8915544750550676639, guid: 0955e871b317d9a46b25825e261e95b4, type: 3}
+      propertyPath: m_Text
+      value: "public static void QuickSort(ref int[] store, int startIndex, int storeCount)\r\n{\r\n       
+        if (startIndex >= storeCount)\r\n            return;\r\n\r\n        int i
+        = startIndex;\r\n        int j = storeCount - 1;\r\n        int middle =
+        store[(startIndex + storeCount) / 2];\r\n        int temp;\r\n\r\n       
+        while (true)\r\n        {\r\n            while (i < storeCount && store[i]
+        < middle)\r\n                i++;\r\n            while (j > 0 && store[j]
+        > middle)\r\n                j--;\r\n            if (i == j)\r\n               
+        break;\r\n\r\n            temp = store[i];\r\n            store[i] = store[j];\r\n           
+        store[j] = temp;\r\n\r\n            if (store[i] == store[j])\r\n               
+        j--;\r\n        }\r\n\r\n        QuickSort(ref store, startIndex, i);\r\n       
+        QuickSort(ref store, i + 1, storeCount);\r\n}"
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0955e871b317d9a46b25825e261e95b4, type: 3}
---- !u!224 &201529970073232712 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 2328157956601062842, guid: 0955e871b317d9a46b25825e261e95b4, type: 3}
-  m_PrefabInstance: {fileID: 2487320853142552818}
-  m_PrefabAsset: {fileID: 0}
