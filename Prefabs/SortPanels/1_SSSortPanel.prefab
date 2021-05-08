@@ -50,6 +50,14 @@ PrefabInstance:
 
         i++'
       objectReference: {fileID: 0}
+    - target: {fileID: 1320515393943640676, guid: 0955e871b317d9a46b25825e261e95b4, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1320515393943640676, guid: 0955e871b317d9a46b25825e261e95b4, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 813
+      objectReference: {fileID: 0}
     - target: {fileID: 1536723917026185756, guid: 0955e871b317d9a46b25825e261e95b4, type: 3}
       propertyPath: m_SizeDelta.x
       value: 242
@@ -327,11 +335,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4075601728366335746, guid: 0955e871b317d9a46b25825e261e95b4, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 182.79077
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4075601728366335746, guid: 0955e871b317d9a46b25825e261e95b4, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 813
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4075601728366335746, guid: 0955e871b317d9a46b25825e261e95b4, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 4075601728366335746, guid: 0955e871b317d9a46b25825e261e95b4, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 4147644124806164177, guid: 0955e871b317d9a46b25825e261e95b4, type: 3}
       propertyPath: m_Text
@@ -517,6 +533,14 @@ PrefabInstance:
       propertyPath: m_Text
       value: j--
       objectReference: {fileID: 0}
+    - target: {fileID: 5292897849844859913, guid: 0955e871b317d9a46b25825e261e95b4, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5292897849844859913, guid: 0955e871b317d9a46b25825e261e95b4, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 813
+      objectReference: {fileID: 0}
     - target: {fileID: 5357904047466624055, guid: 0955e871b317d9a46b25825e261e95b4, type: 3}
       propertyPath: m_SizeDelta.x
       value: 296.84
@@ -569,13 +593,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: temp = store[i] store[i] = store[minIndex] store[minIndex] = temp i++
       objectReference: {fileID: 0}
+    - target: {fileID: 5789775831670289294, guid: 0955e871b317d9a46b25825e261e95b4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5816476335268809075, guid: 0955e871b317d9a46b25825e261e95b4, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 5901565959741028040, guid: 0955e871b317d9a46b25825e261e95b4, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6086528550429284748, guid: 0955e871b317d9a46b25825e261e95b4, type: 3}
       propertyPath: m_SizeDelta.x
@@ -665,6 +693,29 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 3fe4821bfbd2e5445a50c13a17c6dad0, type: 3}
+    - target: {fileID: 7515201391846094070, guid: 0955e871b317d9a46b25825e261e95b4, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7515201391846094070, guid: 0955e871b317d9a46b25825e261e95b4, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7515201391846094070, guid: 0955e871b317d9a46b25825e261e95b4, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7720919939870144614, guid: 0955e871b317d9a46b25825e261e95b4, type: 3}
+      propertyPath: m_Text
+      value: "public static void SelectSort(ref int[] store)\r\n{\r\n        int
+        minIndex;\r\n        int temp;\r\n\r\n        for (int i = 0, length = store.Length;
+        i < length; i++)\r\n        {\r\n            <color=red>minIndex = i;\r\n\r\n           
+        for (int j = i + 1; j < length; j++)\r\n            {\r\n               
+        if (store[minIndex] > store[j])\r\n                {\r\n                   
+        minIndex = j;\r\n                }\r\n            }\r</color>\n\n           
+        temp = store[i];\r\n            store[i] = store[minIndex];\r\n           
+        store[minIndex] = temp;\r\n        }\r\n}"
+      objectReference: {fileID: 0}
     - target: {fileID: 7848956864228084525, guid: 0955e871b317d9a46b25825e261e95b4, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 37.5
@@ -784,6 +835,21 @@ PrefabInstance:
     - target: {fileID: 8881013926358388569, guid: 0955e871b317d9a46b25825e261e95b4, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 125
+      objectReference: {fileID: 0}
+    - target: {fileID: 8915544750550676639, guid: 0955e871b317d9a46b25825e261e95b4, type: 3}
+      propertyPath: m_Text
+      value: "public static void SelectSort(ref int[] store)\r\n{\r\n        int
+        minIndex;\r\n        int temp;\r\n\r\n        for (int i = 0, length = store.Length;
+        i < length; i++)\r\n        {\r\n            minIndex = i;\r\n\r\n           
+        for (int j = i + 1; j < length; j++)\r\n            {\r\n               
+        if (store[minIndex] > store[j])\r\n                {\r\n                   
+        minIndex = j;\r\n                }\r\n            }\r\n\n            <color=red>temp
+        = store[i];\r\n            store[i] = store[minIndex];\r\n            store[minIndex]
+        = temp;\r</color>\n        }\r\n}"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8937494671514221937, guid: 0955e871b317d9a46b25825e261e95b4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0955e871b317d9a46b25825e261e95b4, type: 3}
