@@ -1,5 +1,108 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5237280789485948357
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 184318558437630572}
+  - component: {fileID: 2685449327284397863}
+  - component: {fileID: 3154156707108584262}
+  - component: {fileID: 5572325839495943745}
+  m_Layer: 5
+  m_Name: Content_3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &184318558437630572
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5237280789485948357}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1876821330993977328}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 1109}
+  m_Pivot: {x: 0, y: 1}
+--- !u!222 &2685449327284397863
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5237280789485948357}
+  m_CullTransparentMesh: 1
+--- !u!114 &3154156707108584262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5237280789485948357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 32
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 3
+    m_MaxSize: 58
+    m_Alignment: 3
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: "public static void QuickSort(ref int[] store, int startIndex, int storeCount)\r\n{\r\n       
+    if (startIndex >= storeCount)\r\n            return;\r\n\r\n        int i = startIndex;\r\n       
+    int j = storeCount - 1;\r\n        int middle = store[(startIndex + storeCount)
+    / 2];\r\n        int temp;\r\n\r\n        while (true)\r\n        {\r\n           
+    while (i < storeCount && store[i] < middle)\r\n                i++;\r\n           
+    while (j > 0 && store[j] > middle)\r\n                j--;\r\n            if
+    (i == j)\r\n                break;\r\n\r\n            temp = store[i];\r\n           
+    store[i] = store[j];\r\n            store[j] = temp;\r\n\r\n            if (store[i]
+    == store[j])\r\n                j--;\r\n        }\r\n\r\n        <color=red>QuickSort(ref
+    store, startIndex, i);\r\n        QuickSort(ref store, i + 1, storeCount);\r</color>\n}"
+--- !u!114 &5572325839495943745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5237280789485948357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalFit: 2
+  m_VerticalFit: 2
 --- !u!1001 &2487320853142552818
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18,6 +121,18 @@ PrefabInstance:
     - target: {fileID: 1089332410435104992, guid: 0955e871b317d9a46b25825e261e95b4, type: 3}
       propertyPath: sortType
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1089332410435104992, guid: 0955e871b317d9a46b25825e261e95b4, type: 3}
+      propertyPath: codeObjs.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1089332410435104992, guid: 0955e871b317d9a46b25825e261e95b4, type: 3}
+      propertyPath: codeObjs.Array.data[2]
+      value: 
+      objectReference: {fileID: 5237280789485948357}
+    - target: {fileID: 1320515393943640676, guid: 0955e871b317d9a46b25825e261e95b4, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 1109
       objectReference: {fileID: 0}
     - target: {fileID: 1625510920279559437, guid: 0955e871b317d9a46b25825e261e95b4, type: 3}
       propertyPath: m_Name
@@ -151,6 +266,18 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 1109
       objectReference: {fileID: 0}
+    - target: {fileID: 4075601728366335746, guid: 0955e871b317d9a46b25825e261e95b4, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4075601728366335746, guid: 0955e871b317d9a46b25825e261e95b4, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4075601728366335746, guid: 0955e871b317d9a46b25825e261e95b4, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4517568901911106985, guid: 0955e871b317d9a46b25825e261e95b4, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
@@ -177,6 +304,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5292897849844859913, guid: 0955e871b317d9a46b25825e261e95b4, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 1109
+      objectReference: {fileID: 0}
     - target: {fileID: 5396066666234123384, guid: 0955e871b317d9a46b25825e261e95b4, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -187,6 +318,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5396066666234123384, guid: 0955e871b317d9a46b25825e261e95b4, type: 3}
       propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5789775831670289294, guid: 0955e871b317d9a46b25825e261e95b4, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5901565959741028040, guid: 0955e871b317d9a46b25825e261e95b4, type: 3}
@@ -207,13 +342,13 @@ PrefabInstance:
         if (startIndex >= storeCount)\r\n            return;\r\n\r\n        int i
         = startIndex;\r\n        int j = storeCount - 1;\r\n        int middle =
         store[(startIndex + storeCount) / 2];\r\n        int temp;\r\n\r\n       
-        while (true)\r\n        {\r\n            while (i < storeCount && store[i]
-        < middle)\r\n                i++;\r\n            while (j > 0 && store[j]
-        > middle)\r\n                j--;\r\n            if (i == j)\r\n               
-        break;\r\n\r\n            temp = store[i];\r\n            store[i] = store[j];\r\n           
-        store[j] = temp;\r\n\r\n            if (store[i] == store[j])\r\n               
-        j--;\r\n        }\r\n\r\n        QuickSort(ref store, startIndex, i);\r\n       
-        QuickSort(ref store, i + 1, storeCount);\r\n}"
+        while (true)\r\n        {\r\n            <color=red>while (i < storeCount
+        && store[i] < middle)\r\n                i++;\r\n            while (j > 0
+        && store[j] > middle)\r\n                j--;\r\n            if (i == j)\r\n               
+        break;\r</color>\n\r\n            temp = store[i];\r\n            store[i]
+        = store[j];\r\n            store[j] = temp;\r\n\r\n            if (store[i]
+        == store[j])\r\n                j--;\r\n        }\r\n\r\n        QuickSort(ref
+        store, startIndex, i);\r\n        QuickSort(ref store, i + 1, storeCount);\r\n}"
       objectReference: {fileID: 0}
     - target: {fileID: 8915544750550676639, guid: 0955e871b317d9a46b25825e261e95b4, type: 3}
       propertyPath: m_Text
@@ -224,10 +359,20 @@ PrefabInstance:
         while (true)\r\n        {\r\n            while (i < storeCount && store[i]
         < middle)\r\n                i++;\r\n            while (j > 0 && store[j]
         > middle)\r\n                j--;\r\n            if (i == j)\r\n               
-        break;\r\n\r\n            temp = store[i];\r\n            store[i] = store[j];\r\n           
-        store[j] = temp;\r\n\r\n            if (store[i] == store[j])\r\n               
-        j--;\r\n        }\r\n\r\n        QuickSort(ref store, startIndex, i);\r\n       
-        QuickSort(ref store, i + 1, storeCount);\r\n}"
+        break;\r\n\r\n            <color=red>temp = store[i];\r\n            store[i]
+        = store[j];\r\n            store[j] = temp;\r\n\r\n            if (store[i]
+        == store[j])\r\n                j--;\r</color>\n        }\r\n\r\n       
+        QuickSort(ref store, startIndex, i);\r\n        QuickSort(ref store, i +
+        1, storeCount);\r\n}"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8937494671514221937, guid: 0955e871b317d9a46b25825e261e95b4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0955e871b317d9a46b25825e261e95b4, type: 3}
+--- !u!224 &1876821330993977328 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 4075601728366335746, guid: 0955e871b317d9a46b25825e261e95b4, type: 3}
+  m_PrefabInstance: {fileID: 2487320853142552818}
+  m_PrefabAsset: {fileID: 0}

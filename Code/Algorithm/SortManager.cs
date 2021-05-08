@@ -13,7 +13,7 @@ public class SortManager : MonoBehaviour
 
     // 
     public List<InfoItem> infoItems;
-    public List<int> infoItemValues;
+    List<int> infoItemValues;
 
     // 代码对象
     public GameObject[] codeObjs;
@@ -229,6 +229,16 @@ public class SortManager : MonoBehaviour
                 break;
             case SortType.QuickSort:
                 CreateQuickSortTask(0, infoItems.Count);
+
+                Task disActObj = new Task();
+                disActObj.onStart = t =>
+                {
+                    for (int i = 0, length = codeObjs.Length; i < length; i++)
+                    {
+                        codeObjs[i].SetActive(false);
+                    }
+                };
+                tasks.Enqueue(disActObj);
                 break;
             default:
                 break;
@@ -264,11 +274,15 @@ public class SortManager : MonoBehaviour
                 {
                     infoItems[tmpIndex1].SetHightlight();
                     infoItems[tmpMiddleIndex].SetHightlight();
+
+                    codeObjs[0].SetActive(true);
                 };
                 task1.onStop = t =>
                 {
                     infoItems[tmpIndex1].SetNormal();
                     infoItems[tmpMiddleIndex].SetNormal();
+
+                    codeObjs[0].SetActive(false);
                 };
                 tasks.Enqueue(task1);
             }
@@ -280,11 +294,15 @@ public class SortManager : MonoBehaviour
                 {
                     infoItems[tmpIndex2].SetHightlight();
                     infoItems[tmpMiddleIndex].SetHightlight();
+
+                    codeObjs[0].SetActive(true);
                 };
                 task2.onStop = t =>
                 {
                     infoItems[tmpIndex2].SetNormal();
                     infoItems[tmpMiddleIndex].SetNormal();
+
+                    codeObjs[0].SetActive(false);
                 };
                 tasks.Enqueue(task2);
             }
@@ -307,6 +325,7 @@ public class SortManager : MonoBehaviour
                 // 标红
                 infoItems[tmpIndex1].SetHightlight();
                 infoItems[tmpIndex2].SetHightlight();
+                codeObjs[1].SetActive(true);
 
                 tmpRoot = infoItems[tmpIndex1].transform.parent;
 
@@ -328,9 +347,15 @@ public class SortManager : MonoBehaviour
                 // 相关元素还原
                 infoItems[tmpIndex1].SetNormal();
                 infoItems[tmpIndex2].SetNormal();
+                codeObjs[1].SetActive(false);
             };
-
             tasks.Enqueue(task3);
+
+            // 递归标红
+            Task task4 = new Task(taskDuration * 0.5f);
+            task4.onStart = t => { codeObjs[2].SetActive(true); };
+            task4.onStop = t => { codeObjs[2].SetActive(false); };
+            tasks.Enqueue(task4);
 
             // 如果两个值相等,且等于middle,为避免进入死循环,j--
             if (infoItemValues[i] == infoItemValues[j])
