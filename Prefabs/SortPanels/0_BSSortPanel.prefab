@@ -981,7 +981,7 @@ MonoBehaviour:
   - inputField: {fileID: 303779279024570873}
     corretContent: j<n-1-i
   - inputField: {fileID: 6533803484802190586}
-    corretContent: store[j] > store[j + 1]
+    corretContent: store[j]>store[j+1]
   drags:
   - {fileID: 8815107035628218299}
   - {fileID: 7322536301203700510}
