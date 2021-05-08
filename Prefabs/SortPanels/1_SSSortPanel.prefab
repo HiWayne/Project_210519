@@ -31,6 +31,30 @@ PrefabInstance:
       propertyPath: sortType
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1089332410435104992, guid: 0955e871b317d9a46b25825e261e95b4, type: 3}
+      propertyPath: fCGroups.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1089332410435104992, guid: 0955e871b317d9a46b25825e261e95b4, type: 3}
+      propertyPath: fCGroups.Array.data[0].flowChartElements.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1089332410435104992, guid: 0955e871b317d9a46b25825e261e95b4, type: 3}
+      propertyPath: fCGroups.Array.data[1].flowChartElements.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1089332410435104992, guid: 0955e871b317d9a46b25825e261e95b4, type: 3}
+      propertyPath: fCGroups.Array.data[0].flowChartElements.Array.data[0]
+      value: 
+      objectReference: {fileID: 6256745152683810295}
+    - target: {fileID: 1089332410435104992, guid: 0955e871b317d9a46b25825e261e95b4, type: 3}
+      propertyPath: fCGroups.Array.data[0].flowChartElements.Array.data[1]
+      value: 
+      objectReference: {fileID: 3291851829868209179}
+    - target: {fileID: 1089332410435104992, guid: 0955e871b317d9a46b25825e261e95b4, type: 3}
+      propertyPath: fCGroups.Array.data[1].flowChartElements.Array.data[0]
+      value: 
+      objectReference: {fileID: 3813607994756843623}
     - target: {fileID: 1125226467235498512, guid: 0955e871b317d9a46b25825e261e95b4, type: 3}
       propertyPath: m_Text
       value: j++
@@ -335,11 +359,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4075601728366335746, guid: 0955e871b317d9a46b25825e261e95b4, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 182.79077
       objectReference: {fileID: 0}
     - target: {fileID: 4075601728366335746, guid: 0955e871b317d9a46b25825e261e95b4, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 813
       objectReference: {fileID: 0}
     - target: {fileID: 4075601728366335746, guid: 0955e871b317d9a46b25825e261e95b4, type: 3}
       propertyPath: m_LocalScale.x
@@ -603,7 +627,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5901565959741028040, guid: 0955e871b317d9a46b25825e261e95b4, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6086528550429284748, guid: 0955e871b317d9a46b25825e261e95b4, type: 3}
       propertyPath: m_SizeDelta.x
@@ -853,3 +877,36 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0955e871b317d9a46b25825e261e95b4, type: 3}
+--- !u!114 &3291851829868209179 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3357090982554487565, guid: 0955e871b317d9a46b25825e261e95b4, type: 3}
+  m_PrefabInstance: {fileID: 232438656912092950}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e61c45605a2773d4b9d7c70dc5ad0760, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6256745152683810295 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6191786666983551713, guid: 0955e871b317d9a46b25825e261e95b4, type: 3}
+  m_PrefabInstance: {fileID: 232438656912092950}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e61c45605a2773d4b9d7c70dc5ad0760, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3813607994756843623 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4023229585830324081, guid: 0955e871b317d9a46b25825e261e95b4, type: 3}
+  m_PrefabInstance: {fileID: 232438656912092950}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e61c45605a2773d4b9d7c70dc5ad0760, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

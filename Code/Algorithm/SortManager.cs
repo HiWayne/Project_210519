@@ -11,12 +11,15 @@ public class SortManager : MonoBehaviour
 
     public SortType sortType;
 
-    // 
-    public List<InfoItem> infoItems;
-    List<int> infoItemValues;
+    // 流程图对象
+    public FCGroup[] fCGroups;
 
     // 代码对象
     public GameObject[] codeObjs;
+
+    // 
+    public List<InfoItem> infoItems;
+    List<int> infoItemValues;
 
     // 执行按钮
     public Button startExpBtn;
@@ -28,6 +31,28 @@ public class SortManager : MonoBehaviour
     TaskRunner taskRunner;
     Queue<Task> tasks;
     Task currentTask;
+
+    [System.Serializable]
+    public struct FCGroup
+    {
+        public FlowChartElement[] flowChartElements;
+
+        public void SetHightlight()
+        {
+            for (int i = 0, length = flowChartElements.Length; i < length; i++)
+            {
+                flowChartElements[i].SetHightlight();
+            }
+        }
+
+        public void SetNormal()
+        {
+            for (int i = 0, length = flowChartElements.Length; i < length; i++)
+            {
+                flowChartElements[i].SetNormal();
+            }
+        }
+    }
 
     private void Start()
     {
@@ -116,12 +141,15 @@ public class SortManager : MonoBehaviour
                             // 相关元素变红
                             infoItems[index1].SetHightlight();
                             infoItems[index2].SetHightlight();
+                            fCGroups[0].SetHightlight();
                             codeObjs[0].SetActive(true);
                             codeObjs[1].SetActive(infoItems[index1].Value > infoItems[index2].Value);
 
                             if (infoItems[index1].Value > infoItems[index2].Value)
                             {
                                 tmpRoot = infoItems[index1].transform.parent;
+
+                                fCGroups[1].SetHightlight();
 
                                 // 变更父物体
                                 infoItems[index1].transform.SetParent(infoItems[index2].transform.parent);
@@ -142,6 +170,8 @@ public class SortManager : MonoBehaviour
                             // 相关元素还原
                             infoItems[index1].SetNormal();
                             infoItems[index2].SetNormal();
+                            fCGroups[0].SetNormal();
+                            fCGroups[1].SetNormal();
                             codeObjs[0].SetActive(false);
                             codeObjs[1].SetActive(false);
                         };
@@ -172,6 +202,7 @@ public class SortManager : MonoBehaviour
                             // 相关元素变红
                             infoItems[index2].SetHightlight();
                             infoItems[index3].SetHightlight();
+                            fCGroups[0].SetHightlight();
                             codeObjs[0].SetActive(true);
                         };
                         task2.onStop = t =>
@@ -179,6 +210,7 @@ public class SortManager : MonoBehaviour
                             // 相关元素还原
                             infoItems[index2].SetNormal();
                             infoItems[index3].SetNormal();
+                            fCGroups[0].SetNormal();
                             codeObjs[0].SetActive(false);
                         };
 
@@ -198,6 +230,7 @@ public class SortManager : MonoBehaviour
                             // 相关元素变红
                             infoItems[index1].SetHightlight();
                             infoItems[minIndex].SetHightlight();
+                            fCGroups[1].SetHightlight();
                             codeObjs[1].SetActive(true);
 
                             tmpRoot = infoItems[index1].transform.parent;
@@ -220,6 +253,7 @@ public class SortManager : MonoBehaviour
                             // 相关元素还原
                             infoItems[index1].SetNormal();
                             infoItems[minIndex].SetNormal();
+                            fCGroups[1].SetNormal();
                             codeObjs[1].SetActive(false);
                         };
 
