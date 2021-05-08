@@ -93,6 +93,7 @@ public class SortManager : MonoBehaviour
     {
         Transform tmpRoot;
         InfoItem tmpIT;
+        int tmpValue;
         tasks = new Queue<Task>();
 
         switch (sortType)
@@ -154,8 +155,10 @@ public class SortManager : MonoBehaviour
                         int index3 = minIndex;
                         Task task2 = new Task(taskDuration * 0.5f);
 
-                        if (infoItems[index3].Value > infoItems[index2].Value)
+                        if (infoItemValues[index3] > infoItemValues[index2])
+                        {
                             minIndex = index2;
+                        }
                         task2.onStart = t =>
                         {
                             // 相关元素变红
@@ -177,6 +180,9 @@ public class SortManager : MonoBehaviour
                         // 交换位置
                         Task task1 = new Task(taskDuration);
 
+                        tmpValue = infoItemValues[minIndex];
+                        infoItemValues[minIndex] = infoItemValues[i];
+                        infoItemValues[i] = tmpValue;
                         task1.onStart = t =>
                         {
                             // 相关元素变红
