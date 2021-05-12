@@ -6,6 +6,8 @@ using DG.Tweening;
 
 public class FlowChartPanel : DragManager
 {
+    public const int TotalCheckPoint = 10;
+
     public Button zoomInBtn;
     public Button zoomOutBtn;
     public Button exitBtn;
@@ -28,24 +30,28 @@ public class FlowChartPanel : DragManager
     [Header("ÍÏ×§²¿·Ö")]
     public UIDrag[] drags;
 
-    public bool CorrectAll
+    public bool CorrectAll { get { return ErrorCount == 0 || GameMain.Instance.test; } }
+
+    public int ErrorCount
     {
         get
         {
-            bool corret = true;
+            int count = 0;
 
             for (int i = 0, length = inputDatas.Length; i < length; i++)
             {
                 int index = i;
 
-                corret &= inputDatas[index].inputField.text.Replace(" ", "") == inputDatas[index].corretContent.Replace(" ", "");
+                if (inputDatas[index].inputField.text.Replace(" ", "") != inputDatas[index].corretContent.Replace(" ", ""))
+                    count++;
             }
             for (int i = 0, length = drags.Length; i < length; i++)
             {
-                corret &= drags[i].IsCorrect;
+                if (!drags[i].IsCorrect)
+                    count++;
             }
 
-            return corret || GameMain.Instance.test;
+            return count;
         }
     }
 
@@ -79,7 +85,8 @@ public class FlowChartPanel : DragManager
 
     public void ZoomOut()
     {
-        bool correctAll = CorrectAll;
+        int errorCount = ErrorCount;
+        bool correctAll = ErrorCount == 0;
 
         if (zoomIn != null)
             zoomIn.Kill();
@@ -88,6 +95,8 @@ public class FlowChartPanel : DragManager
 
         dragsPanel.SetActive(false);
         codePanel.SetActive(correctAll);
+        if (!correctAll)
+            UIMain.Instance.ShowErrorCount(ErrorCount);
 
         zoomOut = targetRect.DOSizeDelta(new Vector2(widthRange.x, targetRect.sizeDelta.y), duration);
         zoomOut.OnComplete(() =>

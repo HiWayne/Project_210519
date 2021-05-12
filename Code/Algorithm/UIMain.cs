@@ -2,9 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using GameBasic;
+using UnityEngine.UI;
 
 public class UIMain : MonoSingleton<UIMain>
 {
+    const string ErrorText = "错误个数：";
+
     // UI层级父对象
     public Transform defaultLayer;
     public Transform topLayer;
@@ -12,6 +15,10 @@ public class UIMain : MonoSingleton<UIMain>
 
     // 排序的数值范围
     public Vector2Int itemValueRange;
+    // 信息提示面板
+    public GameObject infoPanel;
+    public Text infoText;
+    public Button infoPanelCloseBtn;
 
     [Header("预制体")]
     public StartMenu startMenuPf;
@@ -26,6 +33,11 @@ public class UIMain : MonoSingleton<UIMain>
     GameObject quickSortInst;
 
     SortType currentSortType;
+
+    private void Start()
+    {
+        infoPanelCloseBtn.onClick.AddListener(() => infoPanel.SetActive(false));
+    }
 
     public void EnterStartMenu()
     {
@@ -107,5 +119,11 @@ public class UIMain : MonoSingleton<UIMain>
     {
         if (quickSortInst != null)
             Destroy(quickSortInst.gameObject);
+    }
+
+    public void ShowErrorCount(int errorCount)
+    {
+        infoText.text = ErrorText + errorCount.ToString();
+        infoPanel.SetActive(true);
     }
 }
