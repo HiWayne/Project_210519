@@ -38,7 +38,7 @@ public class FlowChartPanel : DragManager
             {
                 int index = i;
 
-                corret &= inputDatas[index].inputField.text == inputDatas[index].corretContent;
+                corret &= inputDatas[index].inputField.text.Replace(" ", "") == inputDatas[index].corretContent.Replace(" ", "");
             }
             for (int i = 0, length = drags.Length; i < length; i++)
             {
@@ -87,6 +87,7 @@ public class FlowChartPanel : DragManager
             zoomOut.Kill();
 
         dragsPanel.SetActive(false);
+        codePanel.SetActive(correctAll);
 
         zoomOut = targetRect.DOSizeDelta(new Vector2(widthRange.x, targetRect.sizeDelta.y), duration);
         zoomOut.OnComplete(() =>
@@ -94,7 +95,6 @@ public class FlowChartPanel : DragManager
             zoomInBtn.gameObject.SetActive(true);
             zoomInBtn.interactable = !correctAll;
 
-            codePanel.SetActive(correctAll);
             infosPanel.SetActive(correctAll);
         });
     }
