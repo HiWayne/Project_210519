@@ -279,7 +279,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1778617407261920443, guid: 0955e871b317d9a46b25825e261e95b4, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 368.9
+      value: -36.2
       objectReference: {fileID: 0}
     - target: {fileID: 2057623849973480108, guid: 0955e871b317d9a46b25825e261e95b4, type: 3}
       propertyPath: m_AnchorMax.x
@@ -816,11 +816,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7016852797667601741, guid: 0955e871b317d9a46b25825e261e95b4, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 74.20001
+      value: 96.70001
       objectReference: {fileID: 0}
     - target: {fileID: 7016852797667601741, guid: 0955e871b317d9a46b25825e261e95b4, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 110.39996
+      value: -294.70007
       objectReference: {fileID: 0}
     - target: {fileID: 7155773329795047486, guid: 0955e871b317d9a46b25825e261e95b4, type: 3}
       propertyPath: m_Name
@@ -884,19 +884,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7637936424809236155, guid: 0955e871b317d9a46b25825e261e95b4, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 74.20001
+      value: 96.70001
       objectReference: {fileID: 0}
     - target: {fileID: 7637936424809236155, guid: 0955e871b317d9a46b25825e261e95b4, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 71.69995
+      value: -333.4001
       objectReference: {fileID: 0}
     - target: {fileID: 7705838882672906148, guid: 0955e871b317d9a46b25825e261e95b4, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 74.2
+      value: 96.7
       objectReference: {fileID: 0}
     - target: {fileID: 7705838882672906148, guid: 0955e871b317d9a46b25825e261e95b4, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 146.6
+      value: -258.50003
       objectReference: {fileID: 0}
     - target: {fileID: 7720919939870144614, guid: 0955e871b317d9a46b25825e261e95b4, type: 3}
       propertyPath: m_Text
