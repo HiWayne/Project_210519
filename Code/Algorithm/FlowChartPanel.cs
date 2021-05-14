@@ -22,6 +22,8 @@ public class FlowChartPanel : DragManager
     public GameObject dragsPanel;
     // 代码面板
     public GameObject codePanel;
+    // 下划线面板
+    public GameObject linePanel;
     // 信息演示面板
     public GameObject infosPanel;
 
@@ -95,6 +97,7 @@ public class FlowChartPanel : DragManager
 
         dragsPanel.SetActive(false);
         codePanel.SetActive(correctAll);
+        linePanel.SetActive(!correctAll);
         if (!correctAll)
             UIMain.Instance.ShowErrorCount(ErrorCount);
 
