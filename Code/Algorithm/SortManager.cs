@@ -308,6 +308,7 @@ public class SortManager : MonoBehaviour
                 {
                     infoItems[tmpIndex1].SetHightlight();
                     infoItems[tmpMiddleIndex].SetHightlight();
+                    fCGroups[0].SetHightlight();
 
                     codeObjs[0].SetActive(true);
                 };
@@ -315,6 +316,7 @@ public class SortManager : MonoBehaviour
                 {
                     infoItems[tmpIndex1].SetNormal();
                     infoItems[tmpMiddleIndex].SetNormal();
+                    fCGroups[0].SetNormal();
 
                     codeObjs[0].SetActive(false);
                 };
@@ -328,6 +330,7 @@ public class SortManager : MonoBehaviour
                 {
                     infoItems[tmpIndex2].SetHightlight();
                     infoItems[tmpMiddleIndex].SetHightlight();
+                    fCGroups[1].SetHightlight();
 
                     codeObjs[0].SetActive(true);
                 };
@@ -335,6 +338,7 @@ public class SortManager : MonoBehaviour
                 {
                     infoItems[tmpIndex2].SetNormal();
                     infoItems[tmpMiddleIndex].SetNormal();
+                    fCGroups[1].SetNormal();
 
                     codeObjs[0].SetActive(false);
                 };
@@ -360,6 +364,7 @@ public class SortManager : MonoBehaviour
                 infoItems[tmpIndex1].SetHightlight();
                 infoItems[tmpIndex2].SetHightlight();
                 codeObjs[1].SetActive(true);
+                fCGroups[2].SetHightlight();
 
                 tmpRoot = infoItems[tmpIndex1].transform.parent;
 
@@ -382,13 +387,22 @@ public class SortManager : MonoBehaviour
                 infoItems[tmpIndex1].SetNormal();
                 infoItems[tmpIndex2].SetNormal();
                 codeObjs[1].SetActive(false);
+                fCGroups[2].SetNormal();
             };
             tasks.Enqueue(task3);
 
             // 递归标红
             Task task4 = new Task(taskDuration * 0.5f);
-            task4.onStart = t => { codeObjs[2].SetActive(true); };
-            task4.onStop = t => { codeObjs[2].SetActive(false); };
+            task4.onStart = t =>
+            {
+                codeObjs[2].SetActive(true);
+                fCGroups[3].SetHightlight();
+            };
+            task4.onStop = t =>
+            {
+                codeObjs[2].SetActive(false);
+                fCGroups[3].SetNormal();
+            };
             tasks.Enqueue(task4);
 
             // 如果两个值相等,且等于middle,为避免进入死循环,j--
