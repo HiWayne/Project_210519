@@ -27,6 +27,10 @@ public class SortManager : MonoBehaviour
     public Button autoRunBtn;
     public float taskDuration;
 
+    // 当前实验信息UI
+    public Text expCountText;
+    public Text maxScoreText;
+
     // 任务相关
     TaskRunner taskRunner;
     Queue<Task> tasks;
@@ -412,5 +416,11 @@ public class SortManager : MonoBehaviour
 
         CreateQuickSortTask(startIndex, i);
         CreateQuickSortTask(i + 1, elementCount);
+    }
+
+    public void UpdateUI(int expCount, float expMaxScore)
+    {
+        this.expCountText.text = expCount.ToString();
+        this.maxScoreText.text = string.Format("{0:0}", expMaxScore);
     }
 }

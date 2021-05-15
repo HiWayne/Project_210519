@@ -25,7 +25,7 @@ public class StartMenu : MonoBehaviour
             btnDatas[btnIndex].enterExpBtn.onClick.AddListener(() =>
             {
                 // 进入相应的模块
-                UIMain.Instance.EnterSortPanel(btnDatas[btnIndex].sortType);
+                UIMain.Instance.EnterSortPanel(btnIndex);
 
                 // 离开开始菜单
                 UIMain.Instance.LeaveStartMenu();
@@ -40,5 +40,4 @@ public struct StartMenuBtnData
     public Button switchPanelBtn;
     public Button enterExpBtn;
     public GameObject targetPanel;
-    public SortType sortType;
 }

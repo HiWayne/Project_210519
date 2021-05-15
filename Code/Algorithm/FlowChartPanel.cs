@@ -109,6 +109,9 @@ public class FlowChartPanel : DragManager
 
             infosPanel.SetActive(correctAll);
         });
+
+        // data
+        DataBase.Instance.OnExpSubmit(UIMain.Instance.CurrentSortIndex, 100f / TotalCheckPoint * (TotalCheckPoint - errorCount));
     }
 }
 

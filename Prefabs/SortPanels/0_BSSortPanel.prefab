@@ -1394,6 +1394,8 @@ MonoBehaviour:
   singleLineRunBtn: {fileID: 6769344611005949533}
   autoRunBtn: {fileID: 9223343636914105771}
   taskDuration: 2
+  expCountText: {fileID: 4369321899955437248}
+  maxScoreText: {fileID: 50543093605022203}
 --- !u!114 &462880573770732689
 MonoBehaviour:
   m_ObjectHideFlags: 0

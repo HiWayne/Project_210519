@@ -22,17 +22,21 @@ public class UIMain : MonoSingleton<UIMain>
 
     [Header("Τ¤ΦΖΜε")]
     public StartMenu startMenuPf;
-    public GameObject bubbleSortPf;
-    public GameObject selectSortPf;
-    public GameObject quickSortPf;
+    public SortManager[] sortPanelPfs;
 
     // Κµΐύ
     StartMenu startMenuInst;
-    GameObject bubbleSortInst;
-    GameObject selectSortInst;
-    GameObject quickSortInst;
+    SortManager currentSortPanel;
 
-    SortType currentSortType;
+    public int CurrentSortIndex
+    {
+        get
+        {
+            if (currentSortPanel == null)
+                return 0;
+            return (int)currentSortPanel.sortType;
+        }
+    }
 
     private void Start()
     {
@@ -50,75 +54,26 @@ public class UIMain : MonoSingleton<UIMain>
             Destroy(startMenuInst.gameObject);
     }
 
-    public void EnterSortPanel(SortType sortType)
+    public void EnterSortPanel(int sortIndex)
     {
-        this.currentSortType = sortType;
+        Vector2 sortInfo = DataBase.Instance.GetCurrentSortData(sortIndex);
 
-        switch (currentSortType)
-        {
-            case SortType.BubbleSort:
-                EnterBubbleSort();
-                break;
-            case SortType.SelectSort:
-                EnterSelectSort();
-                break;
-            case SortType.QuickSort:
-                EnterQuickSort();
-                break;
-            default:
-                break;
-        }
+        currentSortPanel = Instantiate(sortPanelPfs[sortIndex], defaultLayer);
+
+
+        UpdateCurrentSortPanelUI((int)sortInfo.x, sortInfo.y);
     }
 
     public void LeaveCurrentSortPanel()
     {
-        switch (currentSortType)
-        {
-            case SortType.BubbleSort:
-                LeaveBubbleSort();
-                break;
-            case SortType.SelectSort:
-                LeaveSelectSort();
-                break;
-            case SortType.QuickSort:
-                LeaveQuickSort();
-                break;
-            default:
-                break;
-        }
+        if (currentSortPanel != null)
+            Destroy(currentSortPanel.gameObject);
     }
 
-    void EnterBubbleSort()
+    public void UpdateCurrentSortPanelUI(int expCount, float expMaxScore)
     {
-        bubbleSortInst = Instantiate(bubbleSortPf, defaultLayer);
-    }
-
-    void LeaveBubbleSort()
-    {
-        if (bubbleSortInst != null)
-            Destroy(bubbleSortInst.gameObject);
-    }
-
-    void EnterSelectSort()
-    {
-        selectSortInst = Instantiate(selectSortPf, defaultLayer);
-    }
-
-    void LeaveSelectSort()
-    {
-        if (selectSortInst != null)
-            Destroy(selectSortInst.gameObject);
-    }
-
-    void EnterQuickSort()
-    {
-        quickSortInst = Instantiate(quickSortPf, defaultLayer);
-    }
-
-    void LeaveQuickSort()
-    {
-        if (quickSortInst != null)
-            Destroy(quickSortInst.gameObject);
+        if (currentSortPanel != null)
+            currentSortPanel.UpdateUI(expCount, expMaxScore);
     }
 
     public void ShowErrorCount(int errorCount)
