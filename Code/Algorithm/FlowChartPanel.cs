@@ -29,6 +29,9 @@ public class FlowChartPanel : DragManager
 
     [Header("输入部分")]
     public IFData[] inputDatas;
+    public Button inputBtn;
+    public Text inputText;
+
     [Header("拖拽部分")]
     public UIDrag[] drags;
 
@@ -78,6 +81,15 @@ public class FlowChartPanel : DragManager
             UIMain.Instance.LeaveCurrentSortPanel();
             UIMain.Instance.EnterStartMenu();
         });
+
+        //
+        for (int i = 0, length = inputDatas.Length; i < length; i++)
+        {
+            int inputIndex = i;
+
+            inputDatas[inputIndex].inputField.onValueChanged.AddListener(data => inputText.text = "  " + data + "  ");
+        }
+        inputBtn.onClick.AddListener(() => inputText.text = "");
 
         for (int i = 0, length = drags.Length; i < length; i++)
         {
