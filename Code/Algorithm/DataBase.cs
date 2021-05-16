@@ -11,6 +11,13 @@ public class DataBase : MonoSingleton<DataBase>
     // 系统是否初始化
     bool inited;
 
+    protected override void Awake()
+    {
+        base.Awake();
+
+        DontDestroyOnLoad(this);
+    }
+
     // 初始化数据系统
     public void Init(PlayerData player)
     {

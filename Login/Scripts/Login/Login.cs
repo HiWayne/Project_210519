@@ -14,14 +14,24 @@ public class Login : MonoBehaviour
     public Text prompt;
     public Request request;
 
+    public DataBase dataBasePf;
+
     void Start()
     {
+        if (DataBase.Instance == null)
+            Instantiate(dataBasePf);
+
         Button btn = this.GetComponent<Button>();
         btn.onClick.AddListener(OnClick);
     }
 
     private void OnClick()
     {
+        // for test
+        DataBase.Instance.Init(new PlayerData() { expsData = new ExpData[3] });
+        AsyncOperation ao = UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(1);
+        return;
+
         if (nameInput.text == "" || passwordInput.text == "" || codeInput.text == "")
         {
             if (nameInput.text == "")

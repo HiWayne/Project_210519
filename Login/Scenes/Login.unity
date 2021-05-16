@@ -1577,6 +1577,7 @@ MonoBehaviour:
   codeInput: {fileID: 1375569942}
   prompt: {fileID: 1815086044}
   request: {fileID: 519420030}
+  dataBasePf: {fileID: 5174644310048470461, guid: 7ed93a6ab3e46e049b9351f48bf99ec5, type: 3}
 --- !u!1 &1375569940
 GameObject:
   m_ObjectHideFlags: 0
@@ -1775,7 +1776,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2068560823
-  m_SortingLayer: -1
+  m_SortingLayer: 0
   m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 22a763982ce854a1a852dac0be8235a8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
