@@ -31,6 +31,8 @@ public class FlowChartPanel : DragManager
     public IFData[] inputDatas;
     public Button inputBtn;
     public Text inputText;
+    public Scrollbar inputTextSB;
+    int currentIFIndex = -1;
 
     [Header("拖拽部分")]
     public UIDrag[] drags;
@@ -87,9 +89,39 @@ public class FlowChartPanel : DragManager
         {
             int inputIndex = i;
 
-            inputDatas[inputIndex].inputField.onValueChanged.AddListener(data => inputText.text = "  " + data + "  ");
+            inputDatas[inputIndex].inputField.onClick += () =>
+            {
+                if (currentIFIndex != -1)
+                {
+                    inputDatas[currentIFIndex].inputField.SetToOriginData();
+                    inputDatas[currentIFIndex].markObj.SetActive(false);
+                }
+
+                currentIFIndex = inputIndex;
+                inputText.text = inputDatas[currentIFIndex].inputField.text;
+                inputDatas[currentIFIndex].markObj.SetActive(true);
+            };
+
+            inputDatas[inputIndex].inputField.onValueChanged.AddListener(data =>
+            {
+                inputText.text = "  " + data + "    ";
+
+                inputTextSB.value = 1;
+            });
         }
-        inputBtn.onClick.AddListener(() => inputText.text = "");
+        //
+        inputBtn.onClick.AddListener(() =>
+        {
+            inputText.text = "";
+
+            if (currentIFIndex != -1)
+            {
+                inputDatas[currentIFIndex].inputField.SaveCurrentData();
+                inputDatas[currentIFIndex].markObj.SetActive(false);
+
+                currentIFIndex = -1;
+            }
+        });
 
         for (int i = 0, length = drags.Length; i < length; i++)
         {
@@ -130,6 +162,9 @@ public class FlowChartPanel : DragManager
 [System.Serializable]
 public struct IFData
 {
-    public InputField inputField;
+    public InputFieldExt inputField;
     public string corretContent;
+
+    // 标记对象
+    public GameObject markObj;
 }
