@@ -29,6 +29,7 @@ public class SortManager : MonoBehaviour
 
     // 当前实验信息UI
     public Text expCountText;
+    public Text remainExpCountText;
     public Text maxScoreText;
 
     // 任务相关
@@ -421,6 +422,7 @@ public class SortManager : MonoBehaviour
     public void UpdateUI(int expCount, float expMaxScore)
     {
         this.expCountText.text = expCount.ToString();
+        this.remainExpCountText.text = (DataBase.ExpMaxCount - expCount).ToString();
         this.maxScoreText.text = string.Format("{0:0}", expMaxScore);
     }
 }

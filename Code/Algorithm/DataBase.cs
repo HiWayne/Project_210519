@@ -4,7 +4,7 @@ using UnityEngine;
 public class DataBase : MonoSingleton<DataBase>
 {
     // 实验最高分数可调节实验次数，当该实验次数大于该值时，提交不再修改该实验的最高分数
-    const int ExpMaxCount = 10;
+    public const int ExpMaxCount = 10;
 
     public PlayerData currentPlayer;
 
