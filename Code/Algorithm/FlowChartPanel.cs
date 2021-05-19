@@ -10,6 +10,7 @@ public class FlowChartPanel : DragManager
 
     public Button zoomInBtn;
     public Button zoomOutBtn;
+    public Button submitBtn;
     public Button exitBtn;
     public RectTransform targetRect;
 
@@ -31,7 +32,6 @@ public class FlowChartPanel : DragManager
     public IFData[] inputDatas;
     public Button inputBtn;
     public InputField inputText;
-    public Scrollbar inputTextSB;
     int currentIFIndex = -1;
 
     [Header("ÍÏ×§²¿·Ö")]
@@ -78,6 +78,7 @@ public class FlowChartPanel : DragManager
             });
         });
         zoomOutBtn.onClick.AddListener(() => ZoomOut());
+        submitBtn.onClick.AddListener(() => SubmitAnswer());
         exitBtn.onClick.AddListener(() =>
         {
             UIMain.Instance.LeaveCurrentSortPanel();
@@ -134,19 +135,26 @@ public class FlowChartPanel : DragManager
             zoomOut.Kill();
 
         dragsPanel.SetActive(false);
-        codePanel.SetActive(correctAll);
-        linePanel.SetActive(!correctAll);
-        if (!correctAll)
-            UIMain.Instance.ShowErrorCount(ErrorCount);
 
         zoomOut = targetRect.DOSizeDelta(new Vector2(widthRange.x, targetRect.sizeDelta.y), duration);
         zoomOut.OnComplete(() =>
         {
             zoomInBtn.gameObject.SetActive(true);
             zoomInBtn.interactable = !correctAll;
-
-            infosPanel.SetActive(correctAll);
         });
+    }
+
+    public void SubmitAnswer()
+    {
+        int errorCount = ErrorCount;
+        bool correctAll = ErrorCount == 0;
+
+        codePanel.SetActive(correctAll);
+        linePanel.SetActive(!correctAll);
+        if (!correctAll)
+            UIMain.Instance.ShowErrorCount(ErrorCount);
+
+        infosPanel.SetActive(correctAll);
 
         // data
         DataBase.Instance.OnExpSubmit(UIMain.Instance.CurrentSortIndex, 100f / TotalCheckPoint * (TotalCheckPoint - errorCount));
