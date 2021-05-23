@@ -4,6 +4,7 @@ using System.Text;
 using UnityEngine;
 using UnityEngine.Networking;
 using Newtonsoft.Json;
+using GameBasic;
 
 // entity 数据实体
 
@@ -62,7 +63,7 @@ public class GradeAndCountEntity
     // 已实验次数
     public int count;
     // 最高分数
-    public int score;
+    public float score;
 }
 
 public class Response<T>
@@ -84,6 +85,7 @@ public class Request : MonoBehaviour
     // IEnumerator Start()
     // {
     // }
+
     public Request()
     {
         // 初始化origin，包括：协议、主机地址和端口
@@ -105,9 +107,9 @@ public class Request : MonoBehaviour
     }
 
     // 根据课程id获取实验信息列表
-    public Response<ExperimentEntity[]> getExperimentsList(int subjectId)
+    public Response<ExperimentEntity[]> getExperimentsListBySubject(int subjectId)
     {
-        Response<ExperimentEntity[]> response = get<ExperimentEntity[]>("/api/experiments/find?subject=" + subjectId);
+        Response<ExperimentEntity[]> response = get<ExperimentEntity[]>("/api/experiments/find/by/subject?id=" + subjectId);
         return response;
     }
 
@@ -127,7 +129,7 @@ public class Request : MonoBehaviour
     }
 
     // 提交某个用户的某一实验的分数（用户id, 实验id, 当前分数)，后端自己会判断是否是最高分数从而选择是否更新
-    public Response<bool> setGrade(int user, int experiment, int score)
+    public Response<bool> setGrade(int user, int experiment, float score)
     {
         string payloadJson = "{\"user\":" + user + ",\"experiment\":" + experiment + ",\"score\":" + score + "}";
         Response<bool> response = post<bool>("/api/user/grade/set", payloadJson);

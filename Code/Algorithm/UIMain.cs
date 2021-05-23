@@ -6,25 +6,27 @@ using UnityEngine.UI;
 
 public class UIMain : MonoSingleton<UIMain>
 {
-    const string ErrorText = "´íÎó¸öÊı£º";
+    const string ErrorText = "é”™è¯¯ä¸ªæ•°ï¼š";
 
-    // UI²ã¼¶¸¸¶ÔÏó
+    // UIå±‚çº§çˆ¶å¯¹è±¡
     public Transform defaultLayer;
     public Transform topLayer;
     public Transform toolLayer;
 
-    // ÅÅĞòµÄÊıÖµ·¶Î§
+    // æ’åºçš„æ•°å€¼èŒƒå›´
     public Vector2Int itemValueRange;
-    // ĞÅÏ¢ÌáÊ¾Ãæ°å
+    // ä¿¡æ¯æç¤ºé¢æ¿
     public GameObject infoPanel;
     public Text infoText;
     public Button infoPanelCloseBtn;
 
-    [Header("Ô¤ÖÆÌå")]
+    [Header("é¢„åˆ¶ä½“")]
+    // public ExperimentInfo experimentInfoPf;
     public StartMenu startMenuPf;
     public SortManager[] sortPanelPfs;
 
-    // ÊµÀı
+    // å®ä¾‹
+    // ExperimentInfo experimentInfoPageInst;
     StartMenu startMenuInst;
     SortManager currentSortPanel;
 
@@ -42,6 +44,17 @@ public class UIMain : MonoSingleton<UIMain>
     {
         infoPanelCloseBtn.onClick.AddListener(() => infoPanel.SetActive(false));
     }
+
+    // public void EnterExperimentInfoPage()
+    // {
+    //     experimentInfoPageInst = Instantiate(experimentInfoPf, defaultLayer);
+    // }
+
+    // public void leaveExperimentInfoPage()
+    // {
+    //     if (experimentInfoPageInst != null)
+    //         Destroy(experimentInfoPageInst.gameObject);
+    // }
 
     public void EnterStartMenu()
     {
@@ -74,6 +87,12 @@ public class UIMain : MonoSingleton<UIMain>
     {
         if (currentSortPanel != null)
             currentSortPanel.UpdateUI(expCount, expMaxScore);
+    }
+
+    public void ShowHasEmpty(bool hasEmpty)
+    {
+        infoText.text = "è¯·å¡«å†™å®Œæ•´ä¸è¦ç•™ç©ºå†æäº¤";
+        infoPanel.SetActive(true);
     }
 
     public void ShowErrorCount(int errorCount)

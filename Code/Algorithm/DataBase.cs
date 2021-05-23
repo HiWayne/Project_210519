@@ -3,12 +3,14 @@ using UnityEngine;
 
 public class DataBase : MonoSingleton<DataBase>
 {
-    // ÊµÑé×î¸ß·ÖÊı¿Éµ÷½ÚÊµÑé´ÎÊı£¬µ±¸ÃÊµÑé´ÎÊı´óÓÚ¸ÃÖµÊ±£¬Ìá½»²»ÔÙĞŞ¸Ä¸ÃÊµÑéµÄ×î¸ß·ÖÊı
+    // å®éªŒæœ€é«˜åˆ†æ•°å¯è°ƒèŠ‚å®éªŒæ¬¡æ•°ï¼Œå½“è¯¥å®éªŒæ¬¡æ•°å¤§äºè¯¥å€¼æ—¶ï¼Œæäº¤ä¸å†ä¿®æ”¹è¯¥å®éªŒçš„æœ€é«˜åˆ†æ•°
     public const int ExpMaxCount = 10;
 
     public PlayerData currentPlayer;
 
-    // ÏµÍ³ÊÇ·ñ³õÊ¼»¯
+    public Request request;
+
+    // ç³»ç»Ÿæ˜¯å¦åˆå§‹åŒ–
     bool inited;
 
     protected override void Awake()
@@ -18,7 +20,7 @@ public class DataBase : MonoSingleton<DataBase>
         DontDestroyOnLoad(this);
     }
 
-    // ³õÊ¼»¯Êı¾İÏµÍ³
+    // åˆå§‹åŒ–æ•°æ®ç³»ç»Ÿ
     public void Init(PlayerData player)
     {
         this.currentPlayer = player;
@@ -26,7 +28,7 @@ public class DataBase : MonoSingleton<DataBase>
         this.inited = true;
     }
 
-    // ÊµÑéµã»÷Ìá½»°´Å¥Ê±Ö´ĞĞ
+    // å®éªŒç‚¹å‡»æäº¤æŒ‰é’®æ—¶æ‰§è¡Œ
     public void OnExpSubmit(int expIndex, float currentScore)
     {
         if (!inited)
@@ -36,12 +38,14 @@ public class DataBase : MonoSingleton<DataBase>
         {
             currentPlayer.expsData[expIndex].expCount++;
 
+            // SQL data modify
+            // count + 1
+            request.addCount(currentPlayer.id, currentPlayer.expsData[expIndex].data.id);
+            request.setGrade(currentPlayer.id, currentPlayer.expsData[expIndex].data.id, currentScore);
+
             if (currentScore > currentPlayer.expsData[expIndex].maxScore)
                 currentPlayer.expsData[expIndex].maxScore = currentScore;
         }
-
-        // TODO
-        // SQL data modify
 
         // ui
         UIMain.Instance.UpdateCurrentSortPanelUI(currentPlayer.expsData[expIndex].expCount, currentPlayer.expsData[expIndex].maxScore);
@@ -56,15 +60,17 @@ public class DataBase : MonoSingleton<DataBase>
     }
 }
 
-// Íæ¼ÒÊı¾İ
+// ç©å®¶æ•°æ®
 public struct PlayerData
 {
+    public int id;
     public ExpData[] expsData;
 }
 
-// ÊµÑéÊı¾İ
+// å®éªŒæ•°æ®
 public struct ExpData
 {
+    public ExperimentEntity data;
     public int expCount;
     public float maxScore;
 }

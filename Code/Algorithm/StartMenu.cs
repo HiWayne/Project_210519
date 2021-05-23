@@ -24,10 +24,10 @@ public class StartMenu : MonoBehaviour
 
             btnDatas[btnIndex].enterExpBtn.onClick.AddListener(() =>
             {
-                // ½øÈëÏàÓ¦µÄÄ£¿é
+                // è¿›å…¥ç›¸åº”çš„æ¨¡å—
                 UIMain.Instance.EnterSortPanel(btnIndex);
 
-                // Àë¿ª¿ªÊ¼²Ëµ¥
+                // ç¦»å¼€å¼€å§‹èœå•
                 UIMain.Instance.LeaveStartMenu();
             });
         }

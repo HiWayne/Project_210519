@@ -14,30 +14,59 @@ public class FlowChartPanel : DragManager
     public Button exitBtn;
     public RectTransform targetRect;
 
-    // ���췶Χ
+    // 拉伸范围
     public Vector2 widthRange;
-    // ����ʱ��
+    // 持续时间
     public float duration;
 
-    // ��ק�������
+    // 拖拽内容面板
     public GameObject dragsPanel;
-    // �������
+    // 代码面板
     public GameObject codePanel;
-    // �»������
+    // 下划线面板
     public GameObject linePanel;
-    // ��Ϣ��ʾ���
+    // 信息演示面板
     public GameObject infosPanel;
 
-    [Header("���벿��")]
+    [Header("输入部分")]
     public IFData[] inputDatas;
     public Button inputBtn;
     public InputField inputText;
     int currentIFIndex = -1;
 
-    [Header("��ק����")]
+    [Header("拖拽部分")]
     public UIDrag[] drags;
 
     public bool CorrectAll { get { return ErrorCount == 0 || GameMain.Instance.test; } }
+
+    // 所有空不能为空
+    public bool HasEmpty
+    {
+        get
+        {
+            bool hasEmpty = false;
+
+            for (int i = 0, length = inputDatas.Length; i < length; i++)
+            {
+                int index = i;
+
+                if (inputDatas[index].inputField.text.Replace(" ", "") == "")
+                    hasEmpty = true;
+            }
+            // 每种排序的流程图拼接数量都是6个，所有的drags中有6个index != -1，则说明没有空缺
+            int count = 0;
+            for (int i = 0, length = drags.Length; i < length; i++)
+            {
+                if (drags[i].currentIndex != -1)
+                    count++;
+            }
+            if (count < 6)
+            {
+                hasEmpty = true;
+            }
+            return hasEmpty;
+        }
+    }
 
     public int ErrorCount
     {
@@ -54,7 +83,8 @@ public class FlowChartPanel : DragManager
             }
             for (int i = 0, length = drags.Length; i < length; i++)
             {
-                if (!drags[i].IsCorrect)
+                // drag可能有多余的，被移动的drag才应该计算错误
+                if (!drags[i].IsCorrect && drags[i].currentIndex != -1)
                     count++;
             }
 
@@ -146,13 +176,21 @@ public class FlowChartPanel : DragManager
 
     public void SubmitAnswer()
     {
+        // 如果有空缺，提示，并不做任何操作
+        if (HasEmpty)
+        {
+            UIMain.Instance.ShowHasEmpty(HasEmpty);
+            return;
+        }
         int errorCount = ErrorCount;
         bool correctAll = ErrorCount == 0;
 
         codePanel.SetActive(correctAll);
         linePanel.SetActive(!correctAll);
+        int LimitedErrorCount = TotalCheckPoint;
         if (!correctAll)
-            UIMain.Instance.ShowErrorCount(ErrorCount);
+            LimitedErrorCount = ErrorCount <= TotalCheckPoint ? ErrorCount : TotalCheckPoint;
+        UIMain.Instance.ShowErrorCount(LimitedErrorCount);
 
         infosPanel.SetActive(correctAll);
 
@@ -167,6 +205,6 @@ public struct IFData
     public InputFieldExt inputField;
     public string corretContent;
 
-    // ��Ƕ���
+    // 标记对象
     public GameObject markObj;
 }
