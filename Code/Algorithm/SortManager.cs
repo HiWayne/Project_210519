@@ -21,6 +21,9 @@ public class SortManager : MonoBehaviour
     public List<InfoItem> infoItems;
     List<int> infoItemValues;
 
+    // 实验说明
+    public Text descText;
+
     // 执行按钮
     public Button startExpBtn;
     public Button singleLineRunBtn;
@@ -61,6 +64,13 @@ public class SortManager : MonoBehaviour
 
     private void Start()
     {
+        // 入口(StartMenu)选中的index
+        int sortIndex = UIMain.Instance.CurrentSortIndex;
+        // 全局数据
+        PlayerData currentPlayer = DataBase.Instance.currentPlayer;
+        // 设置实验说明
+        descText.text = currentPlayer.expsData[sortIndex].data.desc;
+
         infoItemValues = new List<int>(infoItems.Count);
 
         for (int i = 0, length = infoItems.Count; i < length; i++)

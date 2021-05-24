@@ -557,11 +557,13 @@ MonoBehaviour:
   infoPanel: {fileID: 1102653561}
   infoText: {fileID: 1257064264}
   infoPanelCloseBtn: {fileID: 1334859478}
+  experimentInfoPf: {fileID: 2309986140794459727, guid: 5ac746a708c454cf38ee2c0783fed04d, type: 3}
   startMenuPf: {fileID: 8424375789348757084, guid: 5a4b7dd404a70734b8818de62805e3f0, type: 3}
   sortPanelPfs:
   - {fileID: 1089332410435104992, guid: 0955e871b317d9a46b25825e261e95b4, type: 3}
   - {fileID: 875914618329735158, guid: 8b5cc834b3bf8544babc0203a8692a59, type: 3}
   - {fileID: 3286127089823395858, guid: cc62ac9f8ea7c5d45ac5c5e8ec6aa7ac, type: 3}
+  CurrentSortIndex: 0
 --- !u!1 &4915123628170085799
 GameObject:
   m_ObjectHideFlags: 0

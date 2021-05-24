@@ -112,7 +112,8 @@ public class FlowChartPanel : DragManager
         exitBtn.onClick.AddListener(() =>
         {
             UIMain.Instance.LeaveCurrentSortPanel();
-            UIMain.Instance.EnterStartMenu();
+            // 进入实验信息页面
+            UIMain.Instance.EnterExperimentInfoPage();
         });
 
         //
@@ -189,8 +190,11 @@ public class FlowChartPanel : DragManager
         linePanel.SetActive(!correctAll);
         int LimitedErrorCount = TotalCheckPoint;
         if (!correctAll)
+        {
             LimitedErrorCount = ErrorCount <= TotalCheckPoint ? ErrorCount : TotalCheckPoint;
-        UIMain.Instance.ShowErrorCount(LimitedErrorCount);
+            UIMain.Instance.ShowErrorCount(LimitedErrorCount);
+
+        }
 
         infosPanel.SetActive(correctAll);
 

@@ -234,6 +234,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9058419972089421631}
+  - component: {fileID: 2309986140794459727}
   m_Layer: 0
   m_Name: ExperimentInfo
   m_TagString: Untagged
@@ -256,6 +257,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2309986140794459727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1068284176918909951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d8b6c6aec7784304a1e3f9b9168889a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  experimentPurpose: {fileID: 1942141131365036081}
+  exprimentRequire: {fileID: 5228868640011859322}
+  startExperiment: {fileID: 2290094616214256340}
+  exitExperiment: {fileID: 1061419085947644775}
+  currentTitle: {fileID: 9160048458068228149}
+  currentDescription: {fileID: 2594697082858532900}
 --- !u!1 &1196798112234659405
 GameObject:
   m_ObjectHideFlags: 0
@@ -402,7 +421,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -10, y: -374}
+  m_AnchoredPosition: {x: -10, y: -380}
   m_SizeDelta: {x: -40, y: 600}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5973539040481955
@@ -446,7 +465,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.5
-  m_Text: "\u5FEB\u901F\u6392\u5E8F\uFF08Quicksort\uFF09\u662F\u5BF9\u5192\u6CE1\u6392\u5E8F\u7B97\u6CD5\u7684\u4E00\u79CD\u6539\u8FDB\u3002\n\u5FEB\u901F\u6392\u5E8F\u7531C.A.R.Hoare\u57281960\u5E74\u63D0\u51FA\u3002\n\u5B83\u7684\u57FA\u672C\u601D\u60F3\u662F\uFF1A\u901A\u8FC7\u4E00\u8D9F\u6392\u5E8F\u5C06\u8981\u6392\u5E8F\u7684\u6570\u636E\u5206\u5272\u6210\u72EC\u7ACB\u7684\u4E24\u90E8\u5206\uFF0C\u5176\u4E2D\u4E00\u90E8\u5206\u7684\u6240\u6709\u6570\u636E\u90FD\u6BD4\u53E6\u5916\u4E00\u90E8\u5206\u7684\u6240\u6709\u6570\u636E\u90FD\u8981\u5C0F\uFF0C\u7136\u540E\u518D\u6309\u6B64\u65B9\u6CD5\u5BF9\u8FD9\u4E24\u90E8\u5206\u6570\u636E\u5206\u522B\u8FDB\u884C\u5FEB\u901F\u6392\u5E8F\uFF0C\u6574\u4E2A\u6392\u5E8F\u8FC7\u7A0B\u53EF\u4EE5\u9012\u5F52\u8FDB\u884C\uFF0C\u4EE5\u6B64\u8FBE\u5230\u6574\u4E2A\u6570\u636E\u53D8\u6210\u6709\u5E8F\u5E8F\u5217\u3002"
+  m_Text: 
 --- !u!1 &2032567000814953536
 GameObject:
   m_ObjectHideFlags: 0
@@ -1657,7 +1676,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.5
-  m_Text: "\u5FEB\u901F\u6392\u5E8F"
+  m_Text: 
 --- !u!1 &8259213720765022150
 GameObject:
   m_ObjectHideFlags: 0

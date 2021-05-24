@@ -21,40 +21,42 @@ public class UIMain : MonoSingleton<UIMain>
     public Button infoPanelCloseBtn;
 
     [Header("预制体")]
-    // public ExperimentInfo experimentInfoPf;
+    public ExperimentInfo experimentInfoPf;
     public StartMenu startMenuPf;
     public SortManager[] sortPanelPfs;
 
     // 实例
-    // ExperimentInfo experimentInfoPageInst;
+    ExperimentInfo experimentInfoPageInst;
     StartMenu startMenuInst;
     SortManager currentSortPanel;
 
-    public int CurrentSortIndex
-    {
-        get
-        {
-            if (currentSortPanel == null)
-                return 0;
-            return (int)currentSortPanel.sortType;
-        }
-    }
+    public int CurrentSortIndex = 0;
+    // {
+    //     get
+    //     {
+    //         if (currentSortPanel == null)
+    //             return 0;
+    //         return (int)currentSortPanel.sortType;
+    //     }
+    // }
 
     private void Start()
     {
         infoPanelCloseBtn.onClick.AddListener(() => infoPanel.SetActive(false));
     }
 
-    // public void EnterExperimentInfoPage()
-    // {
-    //     experimentInfoPageInst = Instantiate(experimentInfoPf, defaultLayer);
-    // }
+    // 进入具体实验信息页面
+    public void EnterExperimentInfoPage()
+    {
+        experimentInfoPageInst = Instantiate(experimentInfoPf);
+    }
 
-    // public void leaveExperimentInfoPage()
-    // {
-    //     if (experimentInfoPageInst != null)
-    //         Destroy(experimentInfoPageInst.gameObject);
-    // }
+    // 退出实验信息页面
+    public void LeaveExperimentInfoPage()
+    {
+        if (experimentInfoPageInst != null)
+            Destroy(experimentInfoPageInst.gameObject);
+    }
 
     public void EnterStartMenu()
     {
@@ -67,8 +69,13 @@ public class UIMain : MonoSingleton<UIMain>
             Destroy(startMenuInst.gameObject);
     }
 
+    public void ChangeCurrentSortIndex(int sortIndex) {
+        CurrentSortIndex = sortIndex;
+    }
+
     public void EnterSortPanel(int sortIndex)
     {
+        Debug.Log(sortIndex);
         Vector2 sortInfo = DataBase.Instance.GetCurrentSortData(sortIndex);
 
         currentSortPanel = Instantiate(sortPanelPfs[sortIndex], defaultLayer);
@@ -100,4 +107,5 @@ public class UIMain : MonoSingleton<UIMain>
         infoText.text = ErrorText + errorCount.ToString();
         infoPanel.SetActive(true);
     }
+
 }

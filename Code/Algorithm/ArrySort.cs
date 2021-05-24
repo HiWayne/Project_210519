@@ -5,7 +5,7 @@ using System;
 
 public static class ArrySort
 {
-    // Ã°ÅİÅÅĞò
+    // å†’æ³¡æ’åº
     public static void BubbleSort(ref int[] store)
     {
         int temp;
@@ -24,7 +24,7 @@ public static class ArrySort
         }
     }
 
-    // Ñ¡ÔñÅÅĞò
+    // é€‰æ‹©æ’åº
     public static void SelectSort(ref int[] store)
     {
         int minIndex;
@@ -34,7 +34,7 @@ public static class ArrySort
         {
             minIndex = i;
 
-            // ½«µ±Ç°µÄarray[j]Óëarray[minIndex]×÷±È½Ï£¬Èç¹ûarray[j]¸üĞ¡£¬ÔòÌæ»»minµÄµ±Ç°Ë÷Òı
+            // å°†å½“å‰çš„array[j]ä¸array[minIndex]ä½œæ¯”è¾ƒï¼Œå¦‚æœarray[j]æ›´å°ï¼Œåˆ™æ›¿æ¢minçš„å½“å‰ç´¢å¼•
             for (int j = i + 1; j < length; j++)
             {
                 if (store[minIndex] > store[j])
@@ -42,8 +42,8 @@ public static class ArrySort
                     minIndex = j;
                 }
             }
-            // µ±µÚ¶ş¸öforÑ­»·Íê³ÉÊ±£¬array[minIndex]ÖĞ´æ´¢µÄ¾ÍÊÇµ±Ç°×îĞ¡ÔªËØ
-            // ½«array[minIndex]Óëarray[i]½»»»
+            // å½“ç¬¬äºŒä¸ªforå¾ªç¯å®Œæˆæ—¶ï¼Œarray[minIndex]ä¸­å­˜å‚¨çš„å°±æ˜¯å½“å‰æœ€å°å…ƒç´ 
+            // å°†array[minIndex]ä¸array[i]äº¤æ¢
             temp = store[i];
             store[i] = store[minIndex];
             store[minIndex] = temp;
@@ -62,13 +62,13 @@ public static class ArrySort
 
         while (true)
         {
-            // ÔÚmiddle×ó±ßÕÒµ½Ò»¸ö±Èmiddle´óµÄÖµ
+            // åœ¨middleå·¦è¾¹æ‰¾åˆ°ä¸€ä¸ªæ¯”middleå¤§çš„å€¼
             while (i < storeCount && store[i] < middle)
                 i++;
-            // ÔÚmiddleÓÒ±ßÕÒµ½Ò»¸ö±ÈmiddleĞ¡µÄÖµ
+            // åœ¨middleå³è¾¹æ‰¾åˆ°ä¸€ä¸ªæ¯”middleå°çš„å€¼
             while (j > 0 && store[j] > middle)
                 j--;
-            // µ±i=jÊ±,middle×ó±ß¶¼ÊÇ±ÈmiddleĞ¡µÄÊı,ÓÒ±ß¶¼ÊÇ±Èmiddle´óµÄ;Ìø³öÑ­»·
+            // å½“i=jæ—¶,middleå·¦è¾¹éƒ½æ˜¯æ¯”middleå°çš„æ•°,å³è¾¹éƒ½æ˜¯æ¯”middleå¤§çš„;è·³å‡ºå¾ªç¯
             if (i == j)
                 break;
 
@@ -76,7 +76,7 @@ public static class ArrySort
             store[i] = store[j];
             store[j] = temp;
 
-            // Èç¹ûÁ½¸öÖµÏàµÈ,ÇÒµÈÓÚmiddle,Îª±ÜÃâ½øÈëËÀÑ­»·,j--
+            // å¦‚æœä¸¤ä¸ªå€¼ç›¸ç­‰,ä¸”ç­‰äºmiddle,ä¸ºé¿å…è¿›å…¥æ­»å¾ªç¯,j--
             if (store[i] == store[j])
                 j--;
         }

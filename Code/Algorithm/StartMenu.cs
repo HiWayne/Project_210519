@@ -11,7 +11,11 @@ public class StartMenu : MonoBehaviour
 
     private void Start()
     {
-        exitBtn.onClick.AddListener(() => Application.Quit());
+        exitBtn.onClick.AddListener(() =>
+        {
+            // 返回登录页面
+            AsyncOperation ao = UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(0);
+        });
 
         for (int i = 0, length = btnDatas.Length; i < length; i++)
         {
@@ -24,8 +28,11 @@ public class StartMenu : MonoBehaviour
 
             btnDatas[btnIndex].enterExpBtn.onClick.AddListener(() =>
             {
-                // 进入相应的模块
-                UIMain.Instance.EnterSortPanel(btnIndex);
+                // 保存选择的index
+                UIMain.Instance.ChangeCurrentSortIndex(btnIndex);
+
+                // 进入实验信息页面
+                UIMain.Instance.EnterExperimentInfoPage();
 
                 // 离开开始菜单
                 UIMain.Instance.LeaveStartMenu();
